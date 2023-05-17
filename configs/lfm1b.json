@@ -1,0 +1,94 @@
+{
+  "dataset": {
+    "name": "lfm1b",
+    "file_format": "txt",
+    "path": "exp/data/lfm1b",
+    "interactions": "LFM-1b_LEs.txt",
+    "sep": "\t",
+    "col_names": ["org_user", "org_artist", "org_track", "timestamp"],
+    "item_type": "track",
+    "loopback_interval_in_hours": 3,
+    "ndays_min": 365,
+    "ndays_max": 365,
+    "u_ncore": 300,
+    "i_ncore": 500,
+    "fraction": 1.0,
+    "start_index": 50,
+    "samples_step": 300,
+    "random_state": 101,
+    "dataloader": "tempo_mojito",
+    "repeat": false
+  },
+  "training": {
+    "learning_rate": 1e-3,
+    "min_lr": 1e-8,
+    "optimizer": "Adam",
+    "batch_size": 512,
+    "embedding_dim": 64,
+    "tempo_embedding_dim": 16,
+    "tempo_linspace": 8,
+    "train_max_steps": 150000,
+    "save_checkpoints_steps": 1000,
+    "save_summary_steps": 100,
+    "num_epochs": 100,
+    "epoch_tolerate": 10,
+    "max_to_keep": 1,
+    "num_test_negatives": 100,
+    "num_valid_users": 10000,
+    "model_dir": "exp/model",
+    "model": {
+      "type": "tempo",
+      "name": "mojito",
+      "params": {
+        "input_scale": true,
+        "seqlen": 50,
+        "causality": true,
+        "use_reg": true,
+        "lambda_user": 0.0,
+        "lambda_item": 0.0,
+        "use_year": false,
+        "l2_emb": 0.0,
+        "num_blocks": 2,
+        "num_heads": 2,
+        "dropout_rate": 0.3,
+        "kqactivation": "none",
+        "ctx_activation": "none",
+        "lambda_trans_seq": 0.5,
+        "lambda_glob": 0.1,
+        "fism": {
+          "type": "item",
+          "sampling": "uniform",
+          "n_items": 20,
+          "beta": 1.0
+        },
+        "residual": "add"
+      }
+    }
+  },
+  "cache": {
+    "path": "cache/lfm1b/300ucore-500icore",
+    "train_interactions": "train_interactions",
+    "valid_interactions": "valid_interactions",
+    "test_interactions": "test_interactions"
+  },
+  "logs": {
+    "log_dir": "exp/logs",
+    "log_freq": 1000
+  },
+  "eval": {
+    "acc": false,
+    "n_users": 10000,
+    "negative_sampling": {
+      "type": "uniform",
+      "beta": 1.0
+    },
+    "random_seeds": [1013, 2791, 4357, 6199, 7907],
+    "metrics": {
+      "primary": "ndcg",
+      "all": [
+        {"name": "ndcg", "params": {"k": 10}},
+        {"name": "hitrate", "params": {"k": 10}}
+      ]
+    }
+  }
+}
