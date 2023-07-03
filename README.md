@@ -1,10 +1,10 @@
-# MOJITO
+# MOJITO: Attention Mixtures for Time-Aware Sequential Recommendation
 
 
 This repository provides our Python code to reproduce experiments from the paper **Attention Mixtures for Time-Aware Sequential Recommendation**, accepted for publication in the proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval ([SIGIR 2023](https://sigir.org/sigir2023/)). The paper is available online [on arXiv](https://arxiv.org/pdf/2304.08158.pdf).
 
 
-## Attention Mixtures for Time-Aware Sequential Recommendation**
+## Attention Mixtures for Time-Aware Sequential Recommendation
 
 **Transformers** emerged as powerful methods for **sequential recommendation**. However, existing architectures often overlook the complex dependencies between user preferences and the temporal context. 
 
