@@ -13,7 +13,7 @@ In our SIGIR 2023 paper, we introduce **MOJITO**, an improved Transformer sequen
 We demonstrate the relevance of our approach, by empirically outperforming existing Transformers for sequential recommendation on three real-world datasets covering various application domains: movie, book, and music recommendation. 
 
 <p align="center">
-  <img height="325" src="figures/mojito.pdf">
+  <img height="500" src="figures/mojito.png">
 </p>
 
 
