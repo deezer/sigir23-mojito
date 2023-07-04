@@ -1,9 +1,9 @@
 {
   "dataset": {
     "name": "book",
-    "file_format": "txt",
+    "file_format": "csv",
     "path": "exp/data/amazon",
-    "interactions": "ratings_Books.csv",
+    "interactions": "ratings_Books",
     "sep": ",",
     "col_names": ["org_user", "org_item", "rating", "timestamp"],
     "item_type": "item",

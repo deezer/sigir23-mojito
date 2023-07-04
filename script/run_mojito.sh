@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Preprocess
+python data_misc/kcore_interactions.py
+
 # Training
 mkdir -p exp/logs/ml1m/10ucore_5icore/seqlen50/samples_step100
 echo "python -m mojito train --verbose -p configs/ml1m.json"
